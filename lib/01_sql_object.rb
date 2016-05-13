@@ -1,8 +1,6 @@
 require_relative 'db_connection'
 require 'active_support/inflector'
 require 'byebug'
-# NB: the attr_accessor we wrote in phase 0 is NOT used in the rest
-# of this project. It was only a warm up.
 
 class SQLObject
   def self.columns
@@ -24,11 +22,8 @@ class SQLObject
 
   def self.finalize!
     self.columns.each do |column_name|
-
       define_method(column_name) {attributes[column_name]}
-
       define_method("#{column_name}=") {|value| attributes[column_name] = value}
-
     end
   end
 
@@ -37,7 +32,6 @@ class SQLObject
   end
 
   def self.table_name
-
     @table_name ||= self.name.underscore.pluralize
   end
 
@@ -53,10 +47,7 @@ class SQLObject
 
   def self.parse_all(results)
     parsed = []
-    results.each do |result|
-      parsed << self.new(result)
-    end
-
+    results.each { |result| parsed << self.new(result) }
     parsed
   end
 
@@ -69,7 +60,6 @@ class SQLObject
       WHERE
         #{self.table_name}.id = :id
     SQL
-    # byebug
     return nil if found[1].nil?
     parse_all(found[1..-1])[0]
   end
@@ -93,8 +83,6 @@ class SQLObject
   end
 
   def insert
-    # p attribute_values = self.attribute_values
-    # p attribute_values.delete('nil')
     col_names = self.class.columns.join(', ')
     question_marks = (["?"] * attribute_values.count).join(', ')
     DBConnection.execute2(<<-SQL, *attribute_values )
@@ -130,4 +118,5 @@ class SQLObject
       self.update
     end
   end
+  
 end

@@ -11,12 +11,10 @@ class AssocOptions
   )
 
   def model_class
-    # @model_class ||= self.class_name.constantize
     @class_name.constantize
   end
 
   def table_name
-    # @table_name ||= self.class_name.underscore.pluralize
     model_class.table_name
   end
 end
@@ -88,13 +86,11 @@ module Associatable
   end
 
   def assoc_options
-    # Wait to implement this in Phase IVa. Modify `belongs_to`, too.
     @assoc_options ||= {}
     @assoc_options
   end
 end
 
 class SQLObject
-  # Mixin Associatable here...
   extend Associatable
 end
