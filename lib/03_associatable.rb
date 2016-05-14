@@ -1,8 +1,6 @@
 require_relative '02_searchable'
 require 'active_support/inflector'
-require 'byebug'
 
-# Phase IIIa
 class AssocOptions
   attr_accessor(
     :foreign_key,
