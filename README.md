@@ -54,9 +54,15 @@ The ``has_one_through`` creates a one-to-one relation with another table. It gen
 
 ## Naming Conventions
 Model: ``` class Student ``` (uppercase singular camelcase)
+
 Table: ``` student ``` (lowercase singular snake_case)
+
 BelongsTo: ```belongs_to :school``` (lowercase singular snake_case)
+
 HasMany: ```has_many :books``` (lowercase plural snake_case)
+
 HasOne: ```has_one :locker``` (lowercase singular snake_case)
+
 foreign_key(in table): ```student_id``` (lowercase singular snake_case)
+
 primary_key(in table): ```id```
