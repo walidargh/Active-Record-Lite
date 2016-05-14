@@ -1,4 +1,6 @@
-#Overview
+#NAME
+
+##Overview
 NAME is an Active Record inspired ORM, that allows users to connect Ruby defined classes to SQL relational databases. 
 
 #Base Class
