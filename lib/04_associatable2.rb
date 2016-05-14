@@ -14,14 +14,7 @@ module Associatable
         FROM
           #{through_options.table_name}
         JOIN
-          #{source_options.table_name}
-        ON
-          #{through_options.table_name}.#{source_options.foreign_key} =
-            #{source_options.table_name}.#{source_options.primary_key}
-        WHERE
-          #{source_options.table_name}.#{source_options.primary_key} = ?
-      SQL
-      source_options.model_class.parse_all(result[1..-1]).first
+          #{source_options.table_name}.first
     end
   end
 end
