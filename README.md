@@ -53,7 +53,10 @@ The inverse relation to a ``belongs_to`` association is a ``has_many``. This gen
 The ``has_one_through`` creates a one-to-one relation with another table. It generates an instance method that to quickly query a related table. The relation is established through a foreign key that is in the table associated with the class calling ``has_one_through``.
 
 ## Naming Conventions
- --------------------------------------------------------
- |    Model   | ``` User ``` |
- --------------------------------------------------------
- | Table Name | 
+Model: ``` class Student ``` (uppercase singular camelcase)
+Table: ``` student ``` (lowercase singular snake_case)
+BelongsTo: ```belongs_to :school``` (lowercase singular snake_case)
+HasMany: ```has_many :books``` (lowercase plural snake_case)
+HasOne: ```has_one :locker``` (lowercase singular snake_case)
+foreign_key(in table): ```student_id``` (lowercase singular snake_case)
+primary_key(in table): ```id```
