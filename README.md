@@ -1,10 +1,10 @@
-#NAME
+#SQLObjectify
 
 ##Overview
-NAME is an Active Record inspired ORM, that allows users to connect Ruby defined classes to SQL relational databases. 
+SQLObjectify is an Active Record inspired ORM, that allows users to connect Ruby defined classes to SQL relational databases. 
 
 #Base Class
-Users can implement the functionality of NAME by having their defined classes inherit from the base class ``SQLObject``. By utilizing naming conventions (both in the class definitions and in the SQL table foreign keys) they will be able to establish associations betweeen relational databases.
+Users can implement the functionality of SQLObjectify by having their defined classes inherit from the base class ``SQLObject``. By utilizing naming conventions (both in the class definitions and in the SQL table foreign keys) they will be able to establish associations betweeen relational databases.
 
 ```ruby 
 class User < SQLObject
